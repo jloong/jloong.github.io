@@ -70,7 +70,7 @@ function initMap() {
       
         //Location details
         for (var i = 0; i < place.address_components.length; i++) {
-			if(place.address_components[i].types[0] == 'locality')
+			if(place.address_components[i].types[0] == 'locality'){
 				document.getElementById('locality').innerHTML = place.address_components[i].long_name;
 			}
 			if(place.address_components[i].types[0] == 'administrative_area_level_1'){
