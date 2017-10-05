@@ -1,13 +1,13 @@
 <input id="searchInput" width="500" class="controls" type="text" placeholder="Enter a location">
 <div id="map"></div>
 <ul id="geoData">
-    <li>Full Address: <input type='text' id='location'></li>
-	<li>Suburb: <span id="locality"></span></li>
-	<li>State: <span id="administrative_area_level_1"></span></li>
-    <li>Postal Code: <span id="postal_code"></span></li>
-    <li>Country: <span id="country"></span></li>
-    <li>Latitude: <span id="lat"></span></li>
-    <li>Longitude: <span id="lon"></span></li>
+    <li>Full Address: <input type='text' id='location' readonly></li>
+	<li>Suburb: <input type='text' id="locality" readonly></li>
+	<li>State: <input type='text' id="administrative_area_level_1" readonly></li>
+    <li>Postal Code: <input type='text' id="postal_code" readonly></li>
+    <li>Country: <input type='text' id="country" readonly></li>
+    <li>Latitude: <input type='text' id="lat" readonly></li>
+    <li>Longitude: <input type='text' id="lon" readonly></li>
 </ul>
 
 
@@ -72,21 +72,21 @@ function initMap() {
         for (var i = 0; i < place.address_components.length; i++) {
 			
             if(place.address_components[i].types[0] == 'postal_code'){
-                document.getElementById('postal_code').innerHTML = place.address_components[i].long_name;
+                document.getElementById('postal_code').value = place.address_components[i].long_name;
             }
             if(place.address_components[i].types[0] == 'country'){
-                document.getElementById('country').innerHTML = place.address_components[i].long_name;
+                document.getElementById('country').value = place.address_components[i].long_name;
             }
 			if(place.address_components[i].types[0] == 'locality'){
-				document.getElementById('locality').innerHTML = place.address_components[i].long_name;
+				document.getElementById('locality').value = place.address_components[i].long_name;
 			}
 			if(place.address_components[i].types[0] == 'administrative_area_level_1'){
-				document.getElementById('administrative_area_level_1').innerHTML = place.address_components[i].long_name;
+				document.getElementById('administrative_area_level_1').value = place.address_components[i].long_name;
 			}
         }
         document.getElementById('location').value = place.formatted_address;
-        document.getElementById('lat').innerHTML = place.geometry.location.lat();
-        document.getElementById('lon').innerHTML = place.geometry.location.lng();
+        document.getElementById('lat').value = place.geometry.location.lat();
+        document.getElementById('lon').value = place.geometry.location.lng();
     });
 }
 </script>
