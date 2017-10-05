@@ -24,7 +24,8 @@ function initMap() {
     var infowindow = new google.maps.InfoWindow();
     var marker = new google.maps.Marker({
         map: map,
-        anchorPoint: new google.maps.Point(0, -29)
+        anchorPoint: new google.maps.Point(0, -29),
+		disableDefaultUI: true
     });
 
     autocomplete.addListener('place_changed', function() {
@@ -67,6 +68,7 @@ function initMap() {
       
         //Location details
         for (var i = 0; i < place.address_components.length; i++) {
+			
             if(place.address_components[i].types[0] == 'postal_code'){
                 document.getElementById('postal_code').innerHTML = place.address_components[i].long_name;
             }
