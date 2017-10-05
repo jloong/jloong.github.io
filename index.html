@@ -2,6 +2,8 @@
 <div id="map"></div>
 <ul id="geoData">
     <li>Full Address: <span id="location"></span></li>
+	<li>Suburb: <span id="locality"></span></li>
+	<li>State: <span id="administrative_area_level_1"></span></li>
     <li>Postal Code: <span id="postal_code"></span></li>
     <li>Country: <span id="country"></span></li>
     <li>Latitude: <span id="lat"></span></li>
@@ -75,6 +77,12 @@ function initMap() {
             if(place.address_components[i].types[0] == 'country'){
                 document.getElementById('country').innerHTML = place.address_components[i].long_name;
             }
+			if(place.address_components[i].types[0] == 'locality'){
+				document.getElementById('locality').innerHTML = place.address_components[i].long_name;
+			}
+			if(place.address_components[i].types[0] == 'administrative_area_level_1'){
+				document.getElementById('administrative_area_level_1').innerHTML = place.address_components[i].long_name;
+			}
         }
         document.getElementById('location').innerHTML = place.formatted_address;
         document.getElementById('lat').innerHTML = place.geometry.location.lat();
