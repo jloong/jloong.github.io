@@ -16,7 +16,7 @@ function initMap() {
       zoom: 13
     });
     var input = document.getElementById('searchInput');
-    //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.bindTo('bounds', map);
@@ -80,17 +80,17 @@ function initMap() {
     });
 }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdq4oYhK_BMEeXxHD0eG8mYBJlW-8TCV8&libraries=places&callback=initMap"
-        async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyBdq4oYhK_BMEeXxHD0eG8mYBJlW-8TCV8&libraries=places&callback=initMap" ></script>
 
 
 
 <style>
 #map {
-    width: 500px;
+    width: 100%;
     height: 400px;
 }
 </style>
+
 
 
 
