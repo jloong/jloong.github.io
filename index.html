@@ -16,7 +16,7 @@ function initMap() {
       zoom: 13
     });
     var input = document.getElementById('searchInput');
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.bindTo('bounds', map);
@@ -25,7 +25,6 @@ function initMap() {
     var marker = new google.maps.Marker({
         map: map,
         anchorPoint: new google.maps.Point(0, -29)
-		disableDefaultUI: true
     });
 
     autocomplete.addListener('place_changed', function() {
@@ -68,12 +67,6 @@ function initMap() {
       
         //Location details
         for (var i = 0; i < place.address_components.length; i++) {
-			//if(place.address_components[i].types[0] == 'locality'){
-			//	document.getElementById('locality').innerHTML = place.address_components[i].long_name;
-			//}
-			//if(place.address_components[i].types[0] == 'administrative_area_level_1'){
-			//	document.getElementById('administrative_area_level_1').innerHTML = place.address_components[i].long_name;
-			//}
             if(place.address_components[i].types[0] == 'postal_code'){
                 document.getElementById('postal_code').innerHTML = place.address_components[i].long_name;
             }
@@ -94,11 +87,10 @@ function initMap() {
 
 <style>
 #map {
-    width: 100%;
+    width: 500px;
     height: 400px;
 }
 </style>
-
 
 
 
