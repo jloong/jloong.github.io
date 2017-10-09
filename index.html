@@ -30,9 +30,9 @@ function initMap() {
 		draggable: true
     });
 	
-	marker.on('dragend', function (e) {
-		document.getElementById('lat').value = marker.getLatLng().lat;
-		document.getElementById('lon').value = marker.getLatLng().lng;
+	google.maps.event.addListener(marker, 'dragend', function (event) {
+		document.getElementById("lat").value = this.getPosition().lat();
+		document.getElementById("lon").value = this.getPosition().lng();
 	});
 
     autocomplete.addListener('place_changed', function() {
