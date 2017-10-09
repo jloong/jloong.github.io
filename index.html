@@ -29,6 +29,11 @@ function initMap() {
         anchorPoint: new google.maps.Point(0, -29),
 		draggable: true
     });
+	
+	marker.on('dragend', function (e) {
+		document.getElementById('lat').value = marker.getLatLng().lat;
+		document.getElementById('lon').value = marker.getLatLng().lng;
+	});
 
     autocomplete.addListener('place_changed', function() {
         infowindow.close();
