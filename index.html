@@ -67,6 +67,10 @@ function initMap() {
               (place.address_components[1] && place.address_components[1].short_name || ''),
               (place.address_components[2] && place.address_components[2].short_name || '')
             ].join(' ');
+			address2 = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || '')
+			].join(' ');
         }
     
         infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
@@ -89,7 +93,7 @@ function initMap() {
 			}
         }
         //document.getElementById('location').value = place.formatted_address;
-		document.getElementById('location').value = address;
+		document.getElementById('location').value = address2;
         document.getElementById('lat').value = place.geometry.location.lat();
         document.getElementById('lon').value = place.geometry.location.lng();
     });
