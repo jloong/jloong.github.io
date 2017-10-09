@@ -9,7 +9,7 @@
     <li>Latitude: <input type='text' id="lat" readonly="readonly"></li>
     <li>Longitude: <input type='text' id="lon" readonly="readonly"></li>
 </ul>
-<button onclick="myFunction()">Reset Marker</button>
+<button onclick="resetMarker()">Reset Marker</button>
 
 
 <script>
@@ -115,6 +115,30 @@ function geolocate() {
 			autocomplete.setBounds(circle.getBounds());
 		});
 	}
+}
+function resetMarker() {
+	var place = autocomplete.getPlace();
+        if (!place.geometry) {
+            window.alert("Please enter/choose a valid address");
+            return;
+        }
+  
+        // If the place has a geometry, then present it on a map.
+        if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+        } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);
+        }
+        marker.setIcon(({
+            url: place.icon,
+            size: new google.maps.Size(70, 70),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(35, 35)
+        }));
+        marker.setPosition(place.geometry.location);
+        marker.setVisible(true);
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyBdq4oYhK_BMEeXxHD0eG8mYBJlW-8TCV8&libraries=places&callback=initMap" ></script>
