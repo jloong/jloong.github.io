@@ -132,6 +132,10 @@ window.onload = function(){
 	var param_country = getParameterByName('country');
 	var param_latitude = getParameterByName('latitude');
 	var param_longitude = getParameterByName('longitude');
+	if (param_address && param_suburb && param_state && param_postcode) {
+		var full_address = param_address + ' ' + param_suburb + ' ' + param_state + ' ' + param_postcode
+		document.getElementById('searchInput').value = full_address
+	}
 	document.getElementById('location').value = param_address;
 	document.getElementById('locality').value = param_suburb
 	document.getElementById('administrative_area_level_1').value = param_state
@@ -139,6 +143,7 @@ window.onload = function(){
 	document.getElementById('country').value = param_country
 	document.getElementById('lat').value = param_latitude
 	document.getElementById('lon').value = param_longitude
+	
 };
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyBdq4oYhK_BMEeXxHD0eG8mYBJlW-8TCV8&libraries=places&callback=initMap" ></script>
