@@ -8,6 +8,7 @@
     <li>Country: <input type='text' id="country" readonly="readonly"></li>
     <li>Latitude: <input type='text' id="lat" readonly="readonly"></li>
     <li>Longitude: <input type='text' id="lon" readonly="readonly"></li>
+	<li>Test Output: <input type='text' id="output" readonly="readonly"></li>
 </ul>
 <script>
 function initMap() {
@@ -94,6 +95,7 @@ function initMap() {
 		document.getElementById('location').value = address2;
         document.getElementById('lat').value = place.geometry.location.lat();
         document.getElementById('lon').value = place.geometry.location.lng();
+		document.getElementById('output').value = place.geometry.location;
     });
 }
 // Bias the autocomplete object to the user's geographical location,
@@ -113,7 +115,7 @@ function geolocate() {
 		});
 	}
 }
-// Function to obtain parameters
+// Function to obtain parameters in URL
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -132,10 +134,6 @@ window.onload = function(){
 	var param_country = getParameterByName('country');
 	var param_latitude = getParameterByName('latitude');
 	var param_longitude = getParameterByName('longitude');
-	if (param_address && param_suburb && param_state && param_postcode) {
-		var full_address = param_address + ' ' + param_suburb + ' ' + param_state + ' ' + param_postcode
-		document.getElementById('searchInput').value = full_address
-	}
 	document.getElementById('location').value = param_address;
 	document.getElementById('locality').value = param_suburb
 	document.getElementById('administrative_area_level_1').value = param_state
@@ -143,6 +141,15 @@ window.onload = function(){
 	document.getElementById('country').value = param_country
 	document.getElementById('lat').value = param_latitude
 	document.getElementById('lon').value = param_longitude
+	if (param_latitude && param_longitude) {
+		var marker = new google.maps.Marker({
+			map: map,
+			anchorPoint: new google.maps.Point(0, -29),
+			draggable: true
+			marker.setPosition(place.geometry.location);
+			marker.setVisible(true);
+		});
+	}
 	
 };
 </script>
