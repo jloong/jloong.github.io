@@ -8,7 +8,7 @@
     <li>Country: <input type='text' id="country" readonly="readonly"></li>
     <li>Latitude: <input type='text' id="lat" readonly="readonly"></li>
     <li>Longitude: <input type='text' id="lon" readonly="readonly"></li>
-	<li>Test Output: <input type='text' id="output" readonly="readonly"></li>
+	<li>Test Output: <input type='text' id="testoutput" readonly="readonly"></li>
 </ul>
 <script>
 function initMap() {
@@ -95,7 +95,7 @@ function initMap() {
 		document.getElementById('location').value = address2;
         document.getElementById('lat').value = place.geometry.location.lat();
         document.getElementById('lon').value = place.geometry.location.lng();
-		document.getElementById('output').value = place.geometry.location;
+		document.getElementById('testoutput').value = place.geometry.location;
     });
 }
 // Bias the autocomplete object to the user's geographical location,
@@ -141,7 +141,10 @@ window.onload = function(){
 	document.getElementById('country').value = param_country
 	document.getElementById('lat').value = param_latitude
 	document.getElementById('lon').value = param_longitude
-
+	if (param_latitude && param_longitude) {
+		var locStr = "(" + param_latitude + ", " param_longitude + ")"
+		document.getElementByID('testoutput').value = locStr
+	}
 };
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyBdq4oYhK_BMEeXxHD0eG8mYBJlW-8TCV8&libraries=places&callback=initMap" ></script>
