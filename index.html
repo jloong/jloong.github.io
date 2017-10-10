@@ -141,16 +141,7 @@ window.onload = function(){
 	document.getElementById('country').value = param_country
 	document.getElementById('lat').value = param_latitude
 	document.getElementById('lon').value = param_longitude
-	if (param_latitude && param_longitude) {
-		var marker = new google.maps.Marker({
-			map: map,
-			anchorPoint: new google.maps.Point(0, -29),
-			draggable: true
-			marker.setPosition(place.geometry.location);
-			marker.setVisible(true);
-		});
-	}
-	
+
 };
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyBdq4oYhK_BMEeXxHD0eG8mYBJlW-8TCV8&libraries=places&callback=initMap" ></script>
