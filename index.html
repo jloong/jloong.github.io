@@ -45,7 +45,7 @@ function initMap() {
           if (status === 'OK') {
             if (results[0]) {
               map.setZoom(17);
-			  map.setCenter({lat:param_latitude, lng:param_longitude});
+			  map.setCenter(new google.maps.Latlng(param_latitude, param_longitude));
               var marker2 = new google.maps.Marker({
                 position: latlng,
                 map: map
@@ -132,6 +132,7 @@ function initMap() {
 		document.getElementById('testoutput').value = place.geometry.location;
     });
 }
+
 // Bias the autocomplete object to the user's geographical location,
 // as supplied by the browser's 'navigator.geolocation' object.
 function geolocate() {
@@ -149,6 +150,7 @@ function geolocate() {
 		});
 	}
 }
+
 // Function to obtain parameters in URL
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
