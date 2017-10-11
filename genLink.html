@@ -1,0 +1,36 @@
+<form onsubmit="generateLink()">
+<ul>
+    <li>Address:<input type='text' id='location'></li>
+	<li>City:<input type='text' id="locality"></li>
+	<li>Suburb:<input type='text' id="administrative_area_level_1"></li>
+    <li>Postcode:<input type='text' id="postal_code"></li>
+    <li>Country:<input type='text' id="country"></li>
+    <li>Latitude:<input type='text' id="lat"></li>
+    <li>Longitude:<input type='text' id="lon"></li>
+	<li>Test Output:<input type='text' id="testoutput"></li>
+</ul>
+<input type="submit">
+</form>
+
+<input type='text' id='output' readonly="readonly">
+<script>
+function generateLink() {
+	var address = document.getElementById('location').value;
+	var city = document.getElementById('locality').value;
+	var suburb = document.getElementById('administrative_area_level_1').value;
+	var postcode = document.getElementById('postal_code').value;
+	var country = document.getElementById('country').value;
+	var latitude = document.getElementById('lat').value;
+	var longitude = document.getElementById('lon').value;
+	document.getElementById('testoutput').value = address + '||' + city '||' + suburb '||' + postcode '||' + country '||' + latitude '||' + longitude '||' ;
+}
+</script>
+
+
+<style>
+
+</style>
+
+
+
+
