@@ -28,6 +28,10 @@ function initMap() {
 		draggable: true
     });
 	
+	var param_latitude = getParameterByName('latitude');
+	var param_longitude = getParameterByName('longitude');
+	document.getElementById('testoutput').value = param_latitude;
+	
 	google.maps.event.addListener(marker, 'dragend', function (event) {
 		document.getElementById("lat").value = this.getPosition().lat();
 		document.getElementById("lon").value = this.getPosition().lng();
@@ -126,26 +130,26 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-window.onload = function(){
-	var param_address = getParameterByName('address');
-	var param_suburb = getParameterByName('suburb');
-	var param_state = getParameterByName('state');
-	var param_postcode = getParameterByName('postcode');
-	var param_country = getParameterByName('country');
-	var param_latitude = getParameterByName('latitude');
-	var param_longitude = getParameterByName('longitude');
-	document.getElementById('location').value = param_address;
-	document.getElementById('locality').value = param_suburb;
-	document.getElementById('administrative_area_level_1').value = param_state;
-	document.getElementById('postal_code').value = param_postcode;
-	document.getElementById('country').value = param_country;
-	document.getElementById('lat').value = param_latitude;
-	document.getElementById('lon').value = param_longitude;
-	if (param_latitude && param_longitude) {
-		var locStr = param_latitude;
-		document.getElementById('testoutput').value = locStr;
-	}
-};
+//window.onload = function(){
+//	var param_address = getParameterByName('address');
+//	var param_suburb = getParameterByName('suburb');
+//	var param_state = getParameterByName('state');
+//	var param_postcode = getParameterByName('postcode');
+//	var param_country = getParameterByName('country');
+//	var param_latitude = getParameterByName('latitude');
+//	var param_longitude = getParameterByName('longitude');
+//	document.getElementById('location').value = param_address;
+//	document.getElementById('locality').value = param_suburb;
+//	document.getElementById('administrative_area_level_1').value = param_state;
+//	document.getElementById('postal_code').value = param_postcode;
+//	document.getElementById('country').value = param_country;
+//	document.getElementById('lat').value = param_latitude;
+//	document.getElementById('lon').value = param_longitude;
+//	if (param_latitude && param_longitude) {
+//		var locStr = param_latitude;
+//		document.getElementById('testoutput').value = locStr;
+//	}
+//};
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyBdq4oYhK_BMEeXxHD0eG8mYBJlW-8TCV8&libraries=places&callback=initMap" ></script>
 
