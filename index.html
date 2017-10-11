@@ -34,7 +34,16 @@ function initMap() {
 		var locStr = "(" + param_latitude + ", " + param_longitude + ")";
 		document.getElementById('testoutput').value = locStr;
 		map.setCenter(locStr);
-		market.setPosition(locStr);
+        map.setZoom(17);
+		marker.setIcon(({
+            url: place.icon,
+            size: new google.maps.Size(70, 70),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(35, 35)
+        }));
+        marker.setPosition(locStr);
+        marker.setVisible(true);
 	}
 	
 	google.maps.event.addListener(marker, 'dragend', function (event) {
