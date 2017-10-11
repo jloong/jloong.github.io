@@ -47,7 +47,7 @@ function initMap() {
               map.setZoom(17);
 			  map.setCenter(latlng);
               marker.setMap(map);
-			  market.setPosition(latlng);
+			  marker.setPosition(latlng);
               infowindow.setContent('<div><strong>' + param_address + '</strong><br>' + param_address + " " + param_suburb);
               infowindow.open(map, marker);
             } else {
