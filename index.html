@@ -1,6 +1,6 @@
 <input id="searchInput" class="controls" type="text" placeholder="Enter a location" style="width: 500px;" onFocus="geolocate()">
 <div id="map"></div>
-<ul id="geoData">
+<ul>
     <li>Address: <input type='text' id='location' readonly="readonly"></li>
 	<li>Suburb: <input type='text' id="locality" readonly="readonly"></li>
 	<li>State: <input type='text' id="administrative_area_level_1" readonly="readonly"></li>
@@ -39,6 +39,17 @@ function initMap() {
 	var param_longitude = getParameterByName('longitude');
 	var param_address = getParameterByName('address');
 	var param_suburb = getParameterByName('suburb');
+	var param_state = getParameterByName('state');
+	var param_postcode = getParameterByName('postcode');
+	var param_country = getParameterByName('country');
+	document.getElementById('location').value = param_address;
+	document.getElementById('locality').value = param_suburb;
+	document.getElementById('administrative_area_level_1').value = param_state;
+	document.getElementById('postal_code').value = param_postcode;
+	document.getElementById('country').value = param_country;
+	document.getElementById('lat').value = param_latitude;
+	document.getElementById('lon').value = param_longitude;
+	
 	if (param_latitude && param_longitude) {
 		//Initialise Geocoder
 		var geocoder = new google.maps.Geocoder;
