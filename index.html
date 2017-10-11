@@ -35,12 +35,6 @@ function initMap() {
 		document.getElementById('testoutput').value = locStr;
 		map.setCenter(locStr);
         map.setZoom(17);
-		marker.setIcon(({
-            size: new google.maps.Size(70, 70),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(35, 35)
-        }));
         marker.setPosition(locStr);
         marker.setVisible(true);
 	}
