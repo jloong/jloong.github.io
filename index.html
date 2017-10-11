@@ -30,6 +30,8 @@ function initMap() {
 	
 	var param_latitude = getParameterByName('latitude');
 	var param_longitude = getParameterByName('longitude');
+	var param_address = getParameterByName('address');
+	var param_suburb = getParameterByName('suburb');
 	if (param_latitude && param_longitude) {
 		//declare
 		var geocoder = new google.maps.Geocoder;
@@ -42,12 +44,12 @@ function initMap() {
         geocoder.geocode({'location': latlng}, function(results, status) {
           if (status === 'OK') {
             if (results[0]) {
-              map.setZoom(11);
+              map.setZoom(17);
               var marker = new google.maps.Marker({
                 position: latlng,
                 map: map
               });
-              infowindow.setContent(results[0].formatted_address);
+              infowindow.setContent('<div><strong>' + param_address + '</strong><br>' + param_address + " " + param_suburb);
               infowindow.open(map, marker);
             } else {
               window.alert('No results found');
