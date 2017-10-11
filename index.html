@@ -45,6 +45,7 @@ function initMap() {
           if (status === 'OK') {
             if (results[0]) {
               map.setZoom(17);
+			  map.setCenter({lat:param_latitude, lng:param_longitude});
               var marker = new google.maps.Marker({
                 position: latlng,
                 map: map
