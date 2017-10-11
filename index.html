@@ -12,16 +12,23 @@
 </ul>
 <script>
 function initMap() {
+
+	//Initialise Map
     var map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: -33.8688, lng: 151.2195},
       zoom: 13
     });
+	//Initialise Input
     var input = document.getElementById('searchInput');
 
+	//Initialise Google Maps Autocomplete box - Bind to Input box
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.bindTo('bounds', map);
-
+	
+	//Initialise Info window
     var infowindow = new google.maps.InfoWindow();
+	
+	//Initialise Marker
     var marker = new google.maps.Marker({
         map: map,
         anchorPoint: new google.maps.Point(0, -29),
@@ -33,9 +40,8 @@ function initMap() {
 	var param_address = getParameterByName('address');
 	var param_suburb = getParameterByName('suburb');
 	if (param_latitude && param_longitude) {
-		//declare
+		//Initialise Geocoder
 		var geocoder = new google.maps.Geocoder;
-        var infowindow = new google.maps.InfoWindow;
 		//params
 		var coords = param_latitude + "," + param_longitude;
 		document.getElementById('testoutput').value = coords;
