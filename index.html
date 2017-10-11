@@ -46,7 +46,7 @@ function initMap() {
             if (results[0]) {
               map.setZoom(17);
 			  map.setCenter({lat:param_latitude, lng:param_longitude});
-              var marker = new google.maps.Marker({
+              var marker2 = new google.maps.Marker({
                 position: latlng,
                 map: map
               });
@@ -69,6 +69,7 @@ function initMap() {
     autocomplete.addListener('place_changed', function() {
         infowindow.close();
         marker.setVisible(false);
+		marker2.setVisible(false);
         var place = autocomplete.getPlace();
         if (!place.geometry) {
             window.alert("Please enter/choose a valid address");
