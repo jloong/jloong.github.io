@@ -30,7 +30,8 @@ function initMap() {
 	
 	var param_latitude = getParameterByName('latitude');
 	var param_longitude = getParameterByName('longitude');
-	document.getElementById('testoutput').value = param_latitude;
+	var locStr = param_latitude + param_longitude;
+	document.getElementById('testoutput').value = locStr;
 	
 	google.maps.event.addListener(marker, 'dragend', function (event) {
 		document.getElementById("lat").value = this.getPosition().lat();
