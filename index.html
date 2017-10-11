@@ -33,6 +33,8 @@ function initMap() {
 	if (param_latitude && param_longitude) {
 		var locStr = "(" + param_latitude + ", " + param_longitude + ")";
 		document.getElementById('testoutput').value = locStr;
+		map.setCenter(locStr);
+		market.setPosition(locStr);
 	}
 	
 	google.maps.event.addListener(marker, 'dragend', function (event) {
