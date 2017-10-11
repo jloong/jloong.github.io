@@ -35,9 +35,9 @@ function initMap() {
 		var geocoder = new google.maps.Geocoder;
         var infowindow = new google.maps.InfoWindow;
 		//params
-		var input = param_latitude + "," + param_longitude;
-		document.getElementById('testoutput').value = input;
-		var latlngStr = input.split(',', 2);
+		var coords = param_latitude + "," + param_longitude;
+		document.getElementById('testoutput').value = coords;
+		var latlngStr = coords.split(',', 2);
         var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
         geocoder.geocode({'location': latlng}, function(results, status) {
           if (status === 'OK') {
