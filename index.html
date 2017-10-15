@@ -169,7 +169,7 @@ function geolocate() {
 // Function to obtain parameters in URL
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
-	alert(url.replace('data=', ''));
+	url = url.replace('data=', ''));
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
