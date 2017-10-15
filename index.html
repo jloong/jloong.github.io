@@ -180,13 +180,13 @@ function getParameterByName(name, url) {
 
 function submitFunction() {
 	var oReturn = "test return from html";
-	Mscrm.Utilities.setReturnValue(oReturn);
+	//Mscrm.Utilities.setReturnValue(oReturn);
 	
 	try {
 		closeWindow(true);
 	}
 	catch (e) {
-	//alert(e.message);
+	alert(e.message);
 	}
 }
 
