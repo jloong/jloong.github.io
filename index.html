@@ -1,15 +1,27 @@
-<input id="searchInput" class="controls" type="text" placeholder="Enter a location" style="width: 500px;" onFocus="geolocate()">
-<div id="map"></div>
+<html><head>
+<script src="../../ClientGlobalContext.js.aspx" type="text/javascript"></script>
+
+
+<style type="text/css">P { margin: 0; }</style>
+
+<meta charset="utf-8"><style type="text/css">P { margin: 0; }</style><style type="text/css">P { margin: 0; }</style><style type="text/css">P { margin: 0; }</style><style type="text/css">P { margin: 0; }</style></head>
+<body onfocusout="parent.setEmailRange();">
+
+
+
+<div id="map" style="font-family: undefined;"></div>
 <ul>
-    <li>Address: <input type='text' id='location' readonly="readonly"></li>
-	<li>Suburb: <input type='text' id="locality" readonly="readonly"></li>
-	<li>State: <input type='text' id="administrative_area_level_1" readonly="readonly"></li>
-    <li>Postal Code: <input type='text' id="postal_code" readonly="readonly"></li>
-    <li>Country: <input type='text' id="country" readonly="readonly"></li>
-    <li>Latitude: <input type='text' id="lat" readonly="readonly"></li>
-    <li>Longitude: <input type='text' id="lon" readonly="readonly"></li>
-	<li>Test Output: <input type='text' id="testoutput" readonly="readonly"></li>
+    <li>Address: <input id="location" type="text" readonly="readonly"></li>
+	<li>Suburb: <input id="locality" type="text" readonly="readonly"></li>
+	<li>State: <input id="administrative_area_level_1" type="text" readonly="readonly"></li>
+    <li>Postal Code: <input id="postal_code" type="text" readonly="readonly"></li>
+    <li>Country: <input id="country" type="text" readonly="readonly"></li>
+    <li>Latitude: <input id="lat" type="text" readonly="readonly"></li>
+    <li>Longitude: <input id="lon" type="text" readonly="readonly"></li>
+	<li>Test Output: <input id="testoutput" type="text" readonly="readonly"></li>
 </ul>
+<input id="searchInput" style="width: 500px;" onfocus="geolocate()" type="text" placeholder="Enter a location">
+<input id="submitWindow" onclick="submitFunction()" type="submit" value="Submit Query" text="submit">
 <script>
 function initMap() {
 
@@ -161,6 +173,7 @@ function geolocate() {
 // Function to obtain parameters in URL
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
+	alert(url.replace('data=', ''));;
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
@@ -169,28 +182,21 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-//window.onload = function(){
-//	var param_address = getParameterByName('address');
-//	var param_suburb = getParameterByName('suburb');
-//	var param_state = getParameterByName('state');
-//	var param_postcode = getParameterByName('postcode');
-//	var param_country = getParameterByName('country');
-//	var param_latitude = getParameterByName('latitude');
-//	var param_longitude = getParameterByName('longitude');
-//	document.getElementById('location').value = param_address;
-//	document.getElementById('locality').value = param_suburb;
-//	document.getElementById('administrative_area_level_1').value = param_state;
-//	document.getElementById('postal_code').value = param_postcode;
-//	document.getElementById('country').value = param_country;
-//	document.getElementById('lat').value = param_latitude;
-//	document.getElementById('lon').value = param_longitude;
-//	if (param_latitude && param_longitude) {
-//		var locStr = param_latitude;
-//		document.getElementById('testoutput').value = locStr;
-//	}
-//};
+function submitFunction() {
+	var oReturn = "test return from html";
+	Mscrm.Utilities.setReturnValue(oReturn);
+	
+	try {
+		closeWindow(true);
+	}
+	catch (e) {
+	alert(e.message);}
+}
+
+
+
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyBdq4oYhK_BMEeXxHD0eG8mYBJlW-8TCV8&libraries=places&callback=initMap" ></script>
+<script src="https://maps.googleapis.com/maps/api/js?&amp;key=AIzaSyBdq4oYhK_BMEeXxHD0eG8mYBJlW-8TCV8&amp;libraries=places&amp;callback=initMap"></script>
 
 
 
@@ -207,3 +213,4 @@ searchInput {
 
 
 
+</body></html>
