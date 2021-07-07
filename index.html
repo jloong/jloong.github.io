@@ -150,9 +150,9 @@ function doSlot(){
 	var i3 = 0;
 	var sound = 0
 	status.innerHTML = "SPINNING"
-	slot1 = setInterval(spin1, 100);
-	slot2 = setInterval(spin2, 100);
-	slot3 = setInterval(spin3, 100);
+	slot1 = setInterval(spin1, 50);
+	slot2 = setInterval(spin2, 50);
+	slot3 = setInterval(spin3, 50);
 	function spin1(){
 		i1++;
 		if (i1>=numeberSlot1){
@@ -205,13 +205,7 @@ function testWin(){
 	var slot2 = document.getElementById("slot2").className
 	var slot3 = document.getElementById("slot3").className
 
-	if (((slot1 == slot2 && slot2 == slot3) ||
-		(slot1 == slot2 && slot3 == "a7") ||
-		(slot1 == slot3 && slot2 == "a7") ||
-		(slot2 == slot3 && slot1 == "a7") ||
-		(slot1 == slot2 && slot1 == "a7") ||
-		(slot1 == slot3 && slot1 == "a7") ||
-		(slot2 == slot3 && slot2 == "a7") ) && !(slot1 == slot2 && slot2 == slot3 && slot1=="a7")){
+	if (slot1 == slot2 && slot2 == slot3 && slot1 == slot3) {
 		status.innerHTML = "YOU WIN!";
 		win.play();
 	}else{
