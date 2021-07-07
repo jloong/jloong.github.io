@@ -90,25 +90,25 @@ section#info{
 	height: 150px;
 }
 .a1{
-	background-image: url("res/tiles/seven.png");
+	background-image: url("res/tiles/alpaca.png");
 }
 .a2{
-	background-image: url("res/tiles/cherries.png");
+	background-image: url("res/tiles/amouranth.png");
 }
 .a3{
-	background-image: url("res/tiles/club.png");
+	background-image: url("res/tiles/bella.png");
 }
 .a4{
-	background-image: url("res/tiles/diamond.png");
+	background-image: url("res/tiles/indie.png");
 }
 .a5{
-	background-image: url("res/tiles/heart.png");
+	background-image: url("res/tiles/poki.png");
 }
 .a6{
-	background-image: url("res/tiles/spade.png");
+	background-image: url("res/tiles/sojualpaca.png");
 }
 .a7{
-	background-image: url("res/tiles/joker.png");
+	background-image: url("res/tiles/soju.png");
 }
 </style>
 </head>
@@ -126,12 +126,6 @@ section#info{
 		<img src="res/icons/audioOn.png" id="audio" class="option" onclick="toggleAudio()" />
 	</section>
 </main>
-<section id="info">
-	<h3>Come si Gioca?</h3>
-	<p>Tenta la tua fortuna premendo il bottone! Il Jolly vale l'elemento mancante per vincere. Tre elementi uguali e vinici! Ma attenzione, non prendere tre Jolly o perderai!</p>
-	<h3>Licenza</h3>
-	<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Quest'opera è distribuita con Licenza <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribuzione - Non commerciale - Condividi allo stesso modo 4.0 Internazionale</a>.</p>
-</section>
 
 <script>
 var doing = false;
@@ -156,9 +150,9 @@ function doSlot(){
 	var i3 = 0;
 	var sound = 0
 	status.innerHTML = "SPINNING"
-	slot1 = setInterval(spin1, 50);
-	slot2 = setInterval(spin2, 50);
-	slot3 = setInterval(spin3, 50);
+	slot1 = setInterval(spin1, 100);
+	slot2 = setInterval(spin2, 100);
+	slot3 = setInterval(spin3, 100);
 	function spin1(){
 		i1++;
 		if (i1>=numeberSlot1){
